@@ -16,7 +16,7 @@ description         HOL Guard Desktop
 long_description    ${description}
 homepage            https://hol.org/guard
 
-master_sites        https://github.com/hashgraph-online/hol-guard-desktop/releases/download/desktop-v${version}/
+master_sites        "https://hol.org/api/guard/desktop/download?platform=macos&filename="
 distfiles           HOL-Guard-Desktop-${version}-aarch64-dmg.dmg
 use_dmg             yes
 
