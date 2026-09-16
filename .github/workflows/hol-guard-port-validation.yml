@@ -27,7 +27,10 @@ jobs:
         shell: bash
         run: |
           set -euxo pipefail
-          cd security/hol-guard
+          sudo mkdir -p /tmp/hol-guard-localports/security
+          sudo cp -R "$GITHUB_WORKSPACE/security/hol-guard" /tmp/hol-guard-localports/security/
+          sudo chmod -R a+rX /tmp/hol-guard-localports
+          cd /tmp/hol-guard-localports/security/hol-guard
           sudo /opt/local/bin/port -v lint
           sudo /opt/local/bin/port -N -v fetch
           sudo /opt/local/bin/port -N -v destroot
