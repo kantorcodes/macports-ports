@@ -1,0 +1,42 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+
+PortSystem          1.0
+PortGroup           python 1.0
+
+name                hol-guard
+python.rootname     hol_guard
+version             3.0.181
+revision            0
+
+categories          security python
+platforms           {darwin any}
+supported_archs     noarch
+license             Apache-2
+maintainers         nomaintainer
+
+description         Runtime protection for AI agents and coding tools
+long_description    HOL Guard evaluates supported agent actions before they run, \
+                    including shell commands, file access, package installs, \
+                    and MCP tool calls.
+homepage            https://hol.org/guard
+
+master_sites        https://files.pythonhosted.org/packages/ea/3e/f526a9d44885c5f747f0fc49b8687dd369210cfff56be6b04a9a70aa31ac/
+distfiles           hol_guard-${version}.tar.gz
+
+checksums           sha256  f27d0f5b435cffee7fa9d5377821b56411e0f3f45f81b35ef69bd3ffa460a4f4 \
+                    size    9386335
+
+python.default_version 314
+python.pep517_backend hatch
+
+depends_lib-append  port:py${python.version}-cryptography \
+                    port:py${python.version}-idna \
+                    port:py${python.version}-jsonschema \
+                    port:py${python.version}-keyring \
+                    port:py${python.version}-mcp \
+                    port:py${python.version}-packaging \
+                    port:py${python.version}-publicsuffixlist \
+                    port:py${python.version}-regex \
+                    port:py${python.version}-requests \
+                    port:py${python.version}-rich \
+                    port:py${python.version}-yaml
